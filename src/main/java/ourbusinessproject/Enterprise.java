@@ -26,6 +26,10 @@ public class Enterprise {
     @NotNull @NotBlank @Email
     private String contactEmail;
 
+    public long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

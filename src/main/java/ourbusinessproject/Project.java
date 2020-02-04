@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Project {
 
+
+
     @Id
     @GeneratedValue
     private long id;
@@ -17,6 +19,10 @@ public class Project {
     @NotNull @NotBlank
     private String title;
     private String description;
+
+    public long getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
