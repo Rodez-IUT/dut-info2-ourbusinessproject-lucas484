@@ -5,9 +5,11 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @Entity
@@ -26,6 +28,8 @@ public class Enterprise {
     private String contactName;
     @NotBlank @Email
     private String contactEmail;
+    @OneToMany(mappedBy = "entreprise")
+    private Collection<Project> projects;
 
 
     public Enterprise() {
@@ -67,6 +71,10 @@ public class Enterprise {
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public Collection<Project> getProjects() {
+        return projects;
     }
 
 
