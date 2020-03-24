@@ -23,12 +23,23 @@ public class Project {
     @NotNull @ManyToOne
     private Enterprise entreprise;
 
+    public Project(Enterprise enterprise) {
+        this.entreprise = enterprise;
+        this.entreprise.addProject(this);
+
+    }
+
+    public Project() {
+
+    }
+
     public Enterprise getEnterprise() {
         return entreprise;
     }
 
     public void setEnterprise(Enterprise entreprise) {
         this.entreprise = entreprise;
+        this.entreprise.addProject(this);
     }
 
     public String getTitle() {
