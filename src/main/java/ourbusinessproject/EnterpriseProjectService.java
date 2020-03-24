@@ -31,6 +31,12 @@ public class EnterpriseProjectService {
         return this.entityManager.find(Enterprise.class, id);
     }
 
+    public List<Project> findAllProjects(){
+        String query = "SELECT p FROM Project p ORDER BY p.title";
+        TypedQuery<Project> queryObj = entityManager.createQuery(query, Project.class);
+        return queryObj.getResultList();
+    }
+
     public void save(Object objet){
         entityManager.persist(objet);
         entityManager.flush();

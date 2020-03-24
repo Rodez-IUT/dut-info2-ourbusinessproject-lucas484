@@ -20,16 +20,17 @@ public class Project {
     @ManyToOne(cascade= CascadeType.ALL) @NotNull
     private Enterprise entreprise;
 
-    public Project(Enterprise enterprise) {
+    public Project(String title, String description, Enterprise enterprise) {
+        this.title=title;
+        this.description = description;
         this.entreprise = enterprise;
-        if (enterprise != null) {
-            this.entreprise.addProject(this);
-        }
 
     }
 
     public Project() {
-
+        this.title = "";
+        this.description = "";
+        this.entreprise = new Enterprise();
     }
 
     public Enterprise getEnterprise() {
@@ -66,4 +67,6 @@ public class Project {
     public void setId(long id) {
         this.id = id;
     }
+
+
 }
