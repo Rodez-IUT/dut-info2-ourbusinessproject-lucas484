@@ -31,6 +31,7 @@ public class EnterpriseProjectService {
         return this.entityManager.find(Enterprise.class, id);
     }
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     public List<Project> findAllProjects(){
         String query = "SELECT p FROM Project p ORDER BY p.title";
         TypedQuery<Project> queryObj = entityManager.createQuery(query, Project.class);

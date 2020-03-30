@@ -75,6 +75,7 @@ public class Enterprise {
         this.contactEmail = contactEmail;
     }
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     public Collection<Project> getProjects() {
         if(projects.isEmpty()) {
             return null;
@@ -85,5 +86,10 @@ public class Enterprise {
 
     public void addProject(Project aAdd){
         this.projects.add(aAdd);
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

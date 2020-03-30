@@ -68,5 +68,13 @@ public class Project {
         this.id = id;
     }
 
-
+    @Override
+    public String toString() {
+        return "Title : "
+                + this.title
+                + " Description : "
+                + this.description
+                + " Enterprise : "
+                + this.entreprise.getName();
+    }
 }
