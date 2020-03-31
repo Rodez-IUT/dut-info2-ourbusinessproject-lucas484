@@ -20,6 +20,10 @@ public class InitializationService {
     private Enterprise enterprise2;
 
     @Transactional
+    /*
+    * Si il y a une erreur dans une méthode, le fait de faire des transactions va permettre
+    * de conserver l'intégrité des données telle qu'elles étaient au début.
+     */
     public void initProjects() {
 
         enterprise1 = new Enterprise();
